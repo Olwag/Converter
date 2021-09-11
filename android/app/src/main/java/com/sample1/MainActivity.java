@@ -1,4 +1,4 @@
-package com.gach.Converter.krjs;
+package com.gach.ConverterPro.krjs;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "Converter";
+    return "ConverterPro";
   }
 }

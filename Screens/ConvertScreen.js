@@ -12,13 +12,17 @@ class ConvertScreen extends Component {
     value: 0,
     convertedValue: 0,
   };
+
+  unCamelCase(value) {
+    return value.replace(/([A-Z])/g, ' $1');
+  }
   render() {
     const {measure} = this.props.route.params;
     const units = convert().possibilities(measure);
 
     return (
       <View style={styles.container}>
-        <Text style={styles.headerBarText}>{measure}</Text>
+        <Text style={styles.headerBarText}>{this.unCamelCase(measure)}</Text>
         <View style={styles.row}>
           <Picker
             style={{width: 150, height: 180}}
@@ -26,7 +30,7 @@ class ConvertScreen extends Component {
             lineGradientColorFrom={'black'}
             lineGradientColorTo={'black'}
             selectedValue={this.state.fromUnit}
-            itemStyle={{color: 'midnightblue', fontSize: 24}}
+            itemStyle={{color: 'crimson', fontSize: 24}}
             onValueChange={value =>
               this.setState(
                 {
@@ -76,7 +80,7 @@ class ConvertScreen extends Component {
             lineGradientColorFrom={'green'}
             lineGradientColorTo={'red'}
             selectedValue={this.state.toUnit}
-            itemStyle={{color: 'midnightblue', fontSize: 24}}
+            itemStyle={{color: 'crimson', fontSize: 24}}
             onValueChange={value =>
               this.setState(
                 {
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
   headerBarText: {
     fontSize: 32,
     fontWeight: '800',
-    color: 'midnightblue',
+    color: 'crimson',
     textTransform: 'capitalize',
     alignSelf: 'center',
   },
@@ -132,10 +136,10 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    borderColor: 'blue',
+    borderColor: 'palevioletred',
     borderBottomWidth: 1,
     fontSize: 30,
-    color: 'blue',
+    color: 'darkred',
     textAlign: 'center',
   },
 });
